@@ -38,15 +38,6 @@ O **Utility Box** é uma aplicação web completa que reúne múltiplas ferramen
 - ✅ Sistema de datas de vencimento
 - ✅ Exportação/importação de dados
 
-### 🃏 **Jogo de Paciência**
-- ✅ Solitário clássico com regras completas
-- ✅ Sistema de pontuação e estatísticas
-- ✅ Histórico de jogos
-- ✅ Sistema de dicas
-- ✅ Interface responsiva
-- ✅ Atalhos de teclado
-- ✅ Persistência de estatísticas
-
 ### 💻 **Editor de Código**
 - ✅ Suporte a 15+ linguagens de programação
 - ✅ Múltiplos temas (Padrão, Escuro, Monokai, Dracula, GitHub, VS Code)
@@ -172,7 +163,6 @@ utility-box/
 │   ├── calculator.js      # Calculadora
 │   ├── postits.js         # Sistema de post-its
 │   ├── tasks.js           # Organizador de tarefas
-│   ├── solitaire.js       # Jogo de paciência
 │   ├── auth.js            # Sistema de autenticação
 │   ├── api.js             # API REST simulada e sincronização
 │   ├── code-editor.js     # Editor de código
@@ -342,8 +332,6 @@ Para reportar bugs ou solicitar funcionalidades:
 3. **Inclua** informações do sistema
 4. **Descreva** os passos para reproduzir
 
-## 📞 Suporte
-
 ### **Canais de Ajuda**
 - **Issues**: GitHub Issues
 - **Documentação**: Este README
@@ -425,3 +413,4 @@ Para reportar bugs ou solicitar funcionalidades:
 **Desenvolvido com ❤️ para a comunidade brasileira de desenvolvedores**
 
 *"Uma ferramenta para cada necessidade, todas em um só lugar!"* 🛠️✨
+
