@@ -1,7 +1,7 @@
 # 🛠️ Utility Box - Caixa de Ferramentas
 
 ## 📋 Descrição
-
+**O UTILITY BOX AINDA ESTÀ EM DESENVOLVIMENTO, AINDA APRESENTA MUITOS ERROS A SEREM RESOLVIDOS**
 O **Utility Box** é uma aplicação web completa que reúne múltiplas ferramentas úteis em um só lugar. Desenvolvido com tecnologias modernas, oferece uma experiência de usuário excepcional com interface responsiva e funcionalidades avançadas.
 
 ## ✨ Ferramentas Disponíveis
@@ -413,4 +413,5 @@ Para reportar bugs ou solicitar funcionalidades:
 **Desenvolvido com ❤️ para a comunidade brasileira de desenvolvedores**
 
 *"Uma ferramenta para cada necessidade, todas em um só lugar!"* 🛠️✨
+
 
