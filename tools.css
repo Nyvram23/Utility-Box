@@ -1,0 +1,508 @@
+/* ===== ESTILOS ESPECÍFICOS DAS FERRAMENTAS ===== */
+
+/* ===== BLOCOS DE NOTAS ===== */
+.notes-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.note-item {
+    cursor: pointer;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.note-item:hover {
+    background: var(--bg-secondary);
+    border-left-color: var(--primary-color);
+}
+
+.note-item.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.note-item .note-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.note-item .note-date {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.note-content {
+    min-height: 400px;
+    resize: vertical;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5;
+}
+
+/* ===== CALCULADORA ===== */
+.calculator-display {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+}
+
+.calculator-display input {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: right;
+    color: var(--text-primary);
+}
+
+.calculator-buttons .btn {
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+}
+
+.calculator-buttons .btn[data-action="clear"],
+.calculator-buttons .btn[data-action="backspace"],
+.calculator-buttons .btn[data-action="percent"] {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.calculator-buttons .btn[data-action="operator"] {
+    background: var(--warning-color);
+    color: var(--dark-color);
+}
+
+.calculator-buttons .btn[data-action="equals"] {
+    background: var(--success-color);
+    color: white;
+}
+
+.calculator-buttons .btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow);
+}
+
+/* ===== POST-ITS ===== */
+.postit {
+    background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 100%);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.postit:hover {
+    transform: rotate(2deg) scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+.postit.postit-blue {
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    color: white;
+}
+
+.postit.postit-green {
+    background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+    color: white;
+}
+
+.postit.postit-pink {
+    background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    color: white;
+}
+
+.postit.postit-purple {
+    background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);
+    color: white;
+}
+
+.postit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.postit-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.postit-content {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.postit-date {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-top: auto;
+    text-align: right;
+}
+
+.postit-actions {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.postit:hover .postit-actions {
+    opacity: 1;
+}
+
+.postit-actions .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+    margin-left: 0.25rem;
+}
+
+/* ===== SISTEMA DE TAREFAS ===== */
+.task-column {
+    min-height: 400px;
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-md);
+}
+
+.task-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    cursor: grab;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.task-item:active {
+    cursor: grabbing;
+}
+
+.task-item.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.task-title {
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+}
+
+.task-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.task-priority {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.task-priority.low {
+    background: var(--success-color);
+    color: white;
+}
+
+.task-priority.medium {
+    background: var(--warning-color);
+    color: var(--dark-color);
+}
+
+.task-priority.high {
+    background: var(--danger-color);
+    color: white;
+}
+
+.task-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.task-actions .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* ===== JOGO DE PACIÊNCIA ===== */
+.solitaire-game {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    min-height: 500px;
+}
+
+.card-slot {
+    width: 60px;
+    height: 80px;
+    border: 2px dashed var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--spacing-sm);
+    transition: var(--transition);
+}
+
+.card-slot:hover {
+    border-color: var(--primary-color);
+    background: rgba(13, 110, 253, 0.1);
+}
+
+.playing-card {
+    width: 60px;
+    height: 80px;
+    background: white;
+    border: 1px solid var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: grab;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+}
+
+.playing-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.playing-card:active {
+    cursor: grabbing;
+}
+
+.playing-card.red {
+    color: var(--danger-color);
+}
+
+.playing-card.black {
+    color: var(--dark-color);
+}
+
+.playing-card.face-down {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+    color: white;
+}
+
+.card-pile {
+    display: inline-block;
+    margin: var(--spacing-sm);
+}
+
+.card-pile .playing-card:not(:first-child) {
+    margin-top: -60px;
+}
+
+/* ===== GRÁFICOS E ESTATÍSTICAS ===== */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.stats-card {
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.stats-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.stats-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== NOTIFICAÇÕES ===== */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    min-width: 300px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: slideInRight 0.3s ease-out;
+}
+
+.notification.success {
+    background: var(--success-color);
+    color: white;
+}
+
+.notification.warning {
+    background: var(--warning-color);
+    color: var(--dark-color);
+}
+
+.notification.error {
+    background: var(--danger-color);
+    color: white;
+}
+
+.notification.info {
+    background: var(--info-color);
+    color: white;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ===== ANIMAÇÕES ESPECÍFICAS ===== */
+.bounce-in {
+    animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.rotate-in {
+    animation: rotateIn 0.6s ease-out;
+}
+
+@keyframes rotateIn {
+    from {
+        opacity: 0;
+        transform: rotate(-200deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+/* ===== ESTADOS ESPECIAIS ===== */
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.highlight {
+    background: rgba(13, 110, 253, 0.1);
+    border-color: var(--primary-color);
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(13, 110, 253, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    }
+}
+
+/* ===== RESPONSIVIDADE DAS FERRAMENTAS ===== */
+@media (max-width: 768px) {
+    .calculator-buttons .btn {
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .postit {
+        min-height: 120px;
+    }
+    
+    .task-column {
+        min-height: 300px;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .playing-card {
+        width: 50px;
+        height: 70px;
+        font-size: 0.9rem;
+    }
+    
+    .card-slot {
+        width: 50px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 576px) {
+    .calculator-buttons .btn {
+        height: 40px;
+        font-size: 1rem;
+    }
+    
+    .postit {
+        min-height: 100px;
+        padding: var(--spacing-sm);
+    }
+    
+    .task-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .playing-card {
+        width: 45px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+    
+    .card-slot {
+        width: 45px;
+        height: 60px;
+    }
+}

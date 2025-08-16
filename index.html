@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Box - Caixa de Ferramentas</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Chart.js para gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+         <!-- Custom CSS -->
+     <link rel="stylesheet" href="css/main.css">
+     <link rel="stylesheet" href="css/tools.css">
+     <link rel="stylesheet" href="css/responsive.css">
+     
+     <!-- PWA Manifest -->
+     <link rel="manifest" href="manifest.json">
+     <meta name="theme-color" content="#0d6efd">
+     <meta name="apple-mobile-web-app-capable" content="yes">
+     <meta name="apple-mobile-web-app-status-bar-style" content="default">
+     <meta name="apple-mobile-web-app-title" content="Utility Box">
+</head>
+<body>
+    <!-- Header -->
+    <header class="navbar navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">
+                <i class="bi bi-tools me-2"></i>Utility Box
+            </span>
+            <div class="d-flex align-items-center">
+                <div class="dropdown me-3">
+                    <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-circle me-1"></i>
+                        <span id="userName">Convidado</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" id="loginBtn"><i class="bi bi-box-arrow-in-right me-2"></i>Entrar</a></li>
+                        <li><a class="dropdown-item" href="#" id="registerBtn"><i class="bi bi-person-plus me-2"></i>Cadastrar</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" id="logoutBtn" style="display: none;"><i class="bi bi-box-arrow-left me-2"></i>Sair</a></li>
+                    </ul>
+                </div>
+                                 <div class="d-flex align-items-center me-3">
+                     <button class="btn btn-outline-light btn-sm me-2" id="syncBtn" title="Sincronizar dados">
+                         <i class="bi bi-cloud-arrow-up"></i>
+                     </button>
+                     <div class="dropdown">
+                         <button class="btn btn-outline-light btn-sm dropdown-toggle" type="button" id="syncStatusDropdown" data-bs-toggle="dropdown">
+                             <i class="bi bi-cloud-check"></i>
+                         </button>
+                         <ul class="dropdown-menu">
+                             <li><a class="dropdown-item" href="#" id="manualSyncBtn"><i class="bi bi-arrow-clockwise me-2"></i>Sincronização Manual</a></li>
+                             <li><a class="dropdown-item" href="#" id="syncStatsBtn"><i class="bi bi-graph-up me-2"></i>Status da Sincronização</a></li>
+                             <li><hr class="dropdown-divider"></li>
+                             <li><a class="dropdown-item" href="#" id="clearSyncBtn"><i class="bi bi-trash me-2"></i>Limpar Dados de Sync</a></li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="form-check form-switch">
+                     <input class="form-check-input" type="checkbox" id="darkModeToggle">
+                     <label class="form-check-label text-light" for="darkModeToggle">
+                         <i class="bi bi-moon-stars"></i>
+                     </label>
+                 </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container-fluid mt-5 pt-3">
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs" id="utilityTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="notes-tab" data-bs-toggle="tab" data-bs-target="#notes" type="button" role="tab">
+                    <i class="bi bi-journal-text me-2"></i>Bloco de Notas
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="calculator-tab" data-bs-toggle="tab" data-bs-target="#calculator" type="button" role="tab">
+                    <i class="bi bi-calculator me-2"></i>Calculadora
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="postits-tab" data-bs-toggle="tab" data-bs-target="#postits" type="button" role="tab">
+                    <i class="bi bi-sticky me-2"></i>Post-its
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tasks-tab" data-bs-toggle="tab" data-bs-target="#tasks" type="button" role="tab">
+                    <i class="bi bi-kanban me-2"></i>Tarefas
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="code-editor-tab" data-bs-toggle="tab" data-bs-target="#code-editor" type="button" role="tab">
+                    <i class="bi bi-file-code me-2"></i>Editor de Código
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="utilityTabContent">
+            <!-- Bloco de Notas -->
+            <div class="tab-pane fade show active" id="notes" role="tabpanel">
+                <div class="row mt-3">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">Minhas Notas</h6>
+                                <button class="btn btn-primary btn-sm" id="newNoteBtn">
+                                    <i class="bi bi-plus"></i>
+                                </button>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="notesList" class="list-group list-group-flush">
+                                    <!-- Lista de notas será inserida aqui -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0" id="currentNoteTitle">Nova Nota</h6>
+                                <div>
+                                    <button class="btn btn-success btn-sm me-2" id="saveNoteBtn">
+                                        <i class="bi bi-save me-1"></i>Salvar
+                                    </button>
+                                    <button class="btn btn-danger btn-sm" id="deleteNoteBtn">
+                                        <i class="bi bi-trash me-1"></i>Excluir
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <input type="text" class="form-control mb-3" id="noteTitle" placeholder="Título da nota">
+                                <textarea class="form-control" id="noteContent" rows="20" placeholder="Digite sua nota aqui..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculadora -->
+            <div class="tab-pane fade" id="calculator" role="tabpanel">
+                <div class="row justify-content-center mt-3">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h6 class="mb-0 text-center">Calculadora</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="calculator-display mb-3">
+                                    <input type="text" class="form-control text-end" id="calcDisplay" readonly>
+                                </div>
+                                <div class="calculator-buttons">
+                                    <div class="row g-2 mb-2">
+                                        <div class="col-3"><button class="btn btn-secondary w-100" data-action="clear">C</button></div>
+                                        <div class="col-3"><button class="btn btn-secondary w-100" data-action="backspace">⌫</button></div>
+                                        <div class="col-3"><button class="btn btn-secondary w-100" data-action="percent">%</button></div>
+                                        <div class="col-3"><button class="btn btn-warning w-100" data-action="operator" data-operator="/">÷</button></div>
+                                    </div>
+                                    <div class="row g-2 mb-2">
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="7">7</button></div>
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="8">8</button></div>
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="9">9</button></div>
+                                        <div class="col-3"><button class="btn btn-warning w-100" data-action="operator" data-operator="*">×</button></div>
+                                    </div>
+                                    <div class="row g-2 mb-2">
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="4">4</button></div>
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="5">5</button></div>
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="6">6</button></div>
+                                        <div class="col-3"><button class="btn btn-warning w-100" data-action="operator" data-operator="-">-</button></div>
+                                    </div>
+                                    <div class="row g-2 mb-2">
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="1">1</button></div>
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="2">2</button></div>
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="number" data-number="3">3</button></div>
+                                        <div class="col-3"><button class="btn btn-warning w-100" data-action="operator" data-operator="+">+</button></div>
+                                    </div>
+                                    <div class="row g-2">
+                                        <div class="col-6"><button class="btn btn-light w-100" data-action="number" data-number="0">0</button></div>
+                                        <div class="col-3"><button class="btn btn-light w-100" data-action="decimal">.</button></div>
+                                        <div class="col-3"><button class="btn btn-success w-100" data-action="equals">=</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Post-its -->
+            <div class="tab-pane fade" id="postits" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2><i class="bi bi-sticky"></i> Post-its</h2>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" id="newPostitBtn">
+                                        <i class="bi bi-plus-lg"></i> Novo Post-it
+                                    </button>
+                                    <button class="btn btn-outline-secondary" id="clearAllPostitsBtn">
+                                        <i class="bi bi-trash"></i> Limpar Todos
+                                    </button>
+                                    <button class="btn btn-outline-info" id="exportPostitsBtn">
+                                        <i class="bi bi-download"></i> Exportar
+                                    </button>
+                                    <button class="btn btn-outline-info" id="importPostitsBtn">
+                                        <i class="bi bi-upload"></i> Importar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="postitsContainer">
+                                <!-- Post-its serão renderizados aqui -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sistema de Tarefas -->
+            <div class="tab-pane fade" id="tasks" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2><i class="bi bi-kanban"></i> Organizador de Tarefas</h2>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" id="newTaskBtn">
+                                        <i class="bi bi-plus-lg"></i> Nova Tarefa
+                                    </button>
+                                    <button class="btn btn-outline-secondary" id="clearAllTasksBtn">
+                                        <i class="bi bi-trash"></i> Limpar Todas
+                                    </button>
+                                    <button class="btn btn-outline-info" id="exportTasksBtn">
+                                        <i class="bi bi-download"></i> Exportar
+                                    </button>
+                                    <button class="btn btn-outline-info" id="importTasksBtn">
+                                        <i class="bi bi-upload"></i> Importar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kanban Board -->
+                    <div class="row mb-4">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header bg-secondary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-clock"></i> Pendente</h6>
+                                </div>
+                                <div class="card-body task-column" id="pendingTasks" data-status="pending">
+                                    <div class="task-list">
+                                        <!-- Tarefas pendentes -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0"><i class="bi bi-arrow-clockwise"></i> Em Progresso</h6>
+                                </div>
+                                <div class="card-body task-column" id="in-progressTasks" data-status="in-progress">
+                                    <div class="task-list">
+                                        <!-- Tarefas em progresso -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-check-circle"></i> Concluída</h6>
+                                </div>
+                                <div class="card-body task-column" id="completedTasks" data-status="completed">
+                                    <div class="task-list">
+                                        <!-- Tarefas concluídas -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header bg-danger text-white">
+                                    <h6 class="mb-0"><i class="bi bi-x-circle"></i> Cancelada</h6>
+                                </div>
+                                <div class="card-body task-column" id="cancelledTasks" data-status="cancelled">
+                                    <div class="task-list">
+                                        <!-- Tarefas canceladas -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gráficos e Estatísticas -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Status das Tarefas</h6>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="statusChart" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Por Categoria</h6>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="categoryChart" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Por Prioridade</h6>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="priorityChart" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h6 class="mb-0">Progresso Semanal</h6>
+                                </div>
+                                <div class="card-body">
+                                    <canvas id="timelineChart" height="200"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Editor de Código -->
+            <div class="tab-pane fade" id="code-editor" role="tabpanel">
+                <div class="container-fluid">
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h2><i class="bi bi-file-code"></i> Editor de Código</h2>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" id="newCodeFileBtn">
+                                        <i class="bi bi-plus-lg"></i> Novo Arquivo
+                                    </button>
+                                    <button class="btn btn-outline-primary" id="openCodeFileBtn">
+                                        <i class="bi bi-folder-open"></i> Abrir Arquivo
+                                    </button>
+                                    <button class="btn btn-outline-secondary" id="clearAllCodeFilesBtn">
+                                        <i class="bi bi-trash"></i> Limpar Todos
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="codeEditorsContainer">
+                        <!-- Editores serão renderizados aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modais -->
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Entrar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Registro -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadastrar</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Nome</label>
+                            <input type="text" class="form-control" id="registerName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Editor de Post-it -->
+    <div class="modal fade" id="postitEditor" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar Post-it</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="postitTitle" class="form-label">Título</label>
+                        <input type="text" class="form-control" id="postitTitle" placeholder="Título do Post-it">
+                    </div>
+                    <div class="mb-3">
+                        <label for="postitContent" class="form-label">Conteúdo</label>
+                        <textarea class="form-control" id="postitContent" rows="5" placeholder="Digite seu lembrete aqui..."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="postitColor" class="form-label">Cor</label>
+                        <select class="form-select" id="postitColor">
+                            <option value="postit-yellow">Amarelo</option>
+                            <option value="postit-blue">Azul</option>
+                            <option value="postit-green">Verde</option>
+                            <option value="postit-pink">Rosa</option>
+                            <option value="postit-orange">Laranja</option>
+                            <option value="postit-purple">Roxo</option>
+                        </select>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-primary flex-fill" id="savePostitBtn">Salvar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Nova Tarefa -->
+    <div class="modal fade" id="taskModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nova Tarefa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="taskTitle" class="form-label">Título *</label>
+                        <input type="text" class="form-control" id="taskTitle" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskDescription" class="form-label">Descrição</label>
+                        <textarea class="form-control" id="taskDescription" rows="3" placeholder="Descreva sua tarefa..."></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="taskCategory" class="form-label">Categoria</label>
+                                <select class="form-select" id="taskCategory">
+                                    <option value="work">Trabalho</option>
+                                    <option value="personal">Pessoal</option>
+                                    <option value="study">Estudo</option>
+                                    <option value="health">Saúde</option>
+                                    <option value="finance">Finanças</option>
+                                    <option value="other">Outros</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="taskPriority" class="form-label">Prioridade</label>
+                                <select class="form-select" id="taskPriority">
+                                    <option value="low">Baixa</option>
+                                    <option value="medium" selected>Média</option>
+                                    <option value="high">Alta</option>
+                                    <option value="urgent">Urgente</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskDueDate" class="form-label">Data de Vencimento</label>
+                        <input type="date" class="form-control" id="taskDueDate">
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="button" class="btn btn-primary flex-fill" id="saveTaskBtn">Criar Tarefa</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+         <script src="js/main.js"></script>
+     <script src="js/notes.js"></script>
+     <script src="js/calculator.js"></script>
+     <script src="js/postits.js"></script>
+     <script src="js/tasks.js"></script>
+     <script src="js/auth.js"></script>
+     <script src="js/api.js"></script>
+          <script src="js/code-editor.js"></script>
+     <script src="js/keyboard-shortcuts.js"></script>
+     
+     <!-- Service Worker Registration -->
+     <script>
+         // Registrar Service Worker para funcionalidade offline
+         if ('serviceWorker' in navigator) {
+             window.addEventListener('load', () => {
+                 navigator.serviceWorker.register('/sw.js')
+                     .then((registration) => {
+                         console.log('✅ Service Worker registrado:', registration);
+                     })
+                     .catch((error) => {
+                         console.error('❌ Erro no registro do Service Worker:', error);
+                     });
+             });
+         }
+         
+         // Verificar se é PWA instalável
+         let deferredPrompt;
+         window.addEventListener('beforeinstallprompt', (e) => {
+             e.preventDefault();
+             deferredPrompt = e;
+             
+             // Mostrar botão de instalação se necessário
+             const installBtn = document.getElementById('installPWA');
+             if (installBtn) {
+                 installBtn.style.display = 'block';
+             }
+         });
+     </script>
+</body>
+</html>

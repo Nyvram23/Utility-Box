@@ -1,0 +1,237 @@
+{
+  "name": "Utility Box - Caixa de Ferramentas",
+  "short_name": "Utility Box",
+  "description": "Aplicação web completa com múltiplas ferramentas úteis: notas, calculadora, post-its, tarefas, jogo de paciência e mais!",
+  "version": "3.0.0",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0d6efd",
+  "background_color": "#ffffff",
+  "scope": "/",
+  "lang": "pt-BR",
+  "categories": [
+    "productivity",
+    "utilities",
+    "business",
+    "education",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nova Nota",
+      "short_name": "Nota",
+      "description": "Criar uma nova nota rapidamente",
+      "url": "/?tab=notes&action=new",
+      "icons": [
+        {
+          "src": "icons/shortcut-notes.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Nova Tarefa",
+      "short_name": "Tarefa",
+      "description": "Adicionar uma nova tarefa",
+      "url": "/?tab=tasks&action=new",
+      "icons": [
+        {
+          "src": "icons/shortcut-tasks.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Novo Post-it",
+      "short_name": "Post-it",
+      "description": "Criar um novo lembrete",
+      "url": "/?tab=postits&action=new",
+      "icons": [
+        {
+          "src": "icons/shortcut-postits.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Calculadora",
+      "short_name": "Calc",
+      "description": "Abrir a calculadora",
+      "url": "/?tab=calculator",
+      "icons": [
+        {
+          "src": "icons/shortcut-calculator.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Jogo de Paciência",
+      "short_name": "Paciência",
+      "description": "Jogar uma partida de paciência",
+      "url": "/?tab=solitaire",
+      "icons": [
+        {
+          "src": "icons/shortcut-solitaire.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/desktop-main.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Tela principal do Utility Box no desktop"
+    },
+    {
+      "src": "screenshots/desktop-tasks.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Sistema de tarefas com Kanban"
+    },
+    {
+      "src": "screenshots/mobile-main.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Interface mobile responsiva"
+    },
+    {
+      "src": "screenshots/mobile-postits.png",
+      "sizes": "375x667",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Sistema de Post-its no mobile"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred",
+  "protocol_handlers": [
+    {
+      "protocol": "web+utilitybox",
+      "url": "/?action=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/?action=import&type=%s",
+      "accept": {
+        "application/json": [".json"],
+        "text/plain": [".txt"],
+        "text/markdown": [".md"]
+      }
+    }
+  ],
+  "share_target": {
+    "action": "/?action=share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["*/*"]
+        }
+      ]
+    }
+  },
+  "permissions": [
+    "notifications",
+    "background-sync",
+    "storage"
+  ],
+  "features": [
+    "Cross Platform",
+    "Offline Support",
+    "Push Notifications",
+    "Background Sync",
+    "File Handling",
+    "Share Target",
+    "Shortcuts"
+  ],
+  "developer": {
+    "name": "Utility Box Team",
+    "url": "https://utilitybox.cloud"
+  },
+  "homepage_url": "https://utilitybox.cloud",
+  "author": "Utility Box Development Team",
+  "keywords": [
+    "produtividade",
+    "ferramentas",
+    "notas",
+    "tarefas",
+    "calculadora",
+    "post-its",
+    "paciência",
+    "organização",
+    "utilitários",
+    "web app",
+    "pwa",
+    "offline"
+  ]
+}

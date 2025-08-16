@@ -1,0 +1,472 @@
+/* ===== RESPONSIVIDADE COMPLETA ===== */
+
+/* ===== DESKTOP GRANDE (1200px+) ===== */
+@media (min-width: 1200px) {
+    .container-fluid {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: var(--spacing-lg) var(--spacing-xl);
+        font-size: 1.1rem;
+    }
+    
+    .card-body {
+        padding: var(--spacing-xl);
+    }
+    
+    .tab-content {
+        padding: var(--spacing-xl);
+    }
+}
+
+/* ===== DESKTOP (992px - 1199px) ===== */
+@media (max-width: 1199px) and (min-width: 992px) {
+    .nav-tabs .nav-link {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .postit {
+        min-height: 180px;
+    }
+    
+    .task-column {
+        min-height: 450px;
+    }
+}
+
+/* ===== TABLET (768px - 991px) ===== */
+@media (max-width: 991px) and (min-width: 768px) {
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+    
+    .nav-tabs {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .nav-tabs .nav-link {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+    
+    .nav-tabs .nav-link i {
+        margin-right: var(--spacing-xs);
+        font-size: 1rem;
+    }
+    
+    .tab-content {
+        padding: var(--spacing-md);
+    }
+    
+    .card-body {
+        padding: var(--spacing-md);
+    }
+    
+    .postit {
+        min-height: 140px;
+        padding: var(--spacing-sm);
+    }
+    
+    .task-column {
+        min-height: 350px;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .calculator-buttons .btn {
+        height: 45px;
+        font-size: 1.1rem;
+    }
+    
+    .playing-card {
+        width: 55px;
+        height: 75px;
+        font-size: 0.95rem;
+    }
+    
+    .card-slot {
+        width: 55px;
+        height: 75px;
+    }
+}
+
+/* ===== MOBILE GRANDE (576px - 767px) ===== */
+@media (max-width: 767px) and (min-width: 576px) {
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .navbar-brand i {
+        font-size: 1.5rem;
+    }
+    
+    .nav-tabs {
+        padding: 0 var(--spacing-xs);
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .nav-tabs::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .nav-tabs::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 2px;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: var(--spacing-sm);
+        font-size: 0.85rem;
+        white-space: nowrap;
+        min-width: auto;
+    }
+    
+    .nav-tabs .nav-link i {
+        margin-right: var(--spacing-xs);
+        font-size: 0.9rem;
+    }
+    
+    .tab-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .card-body {
+        padding: var(--spacing-sm);
+    }
+    
+    .postit {
+        min-height: 120px;
+        padding: var(--spacing-sm);
+    }
+    
+    .postit-title {
+        font-size: 1rem;
+    }
+    
+    .postit-content {
+        font-size: 0.85rem;
+    }
+    
+    .task-column {
+        min-height: 300px;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .task-item {
+        padding: var(--spacing-sm);
+    }
+    
+    .task-title {
+        font-size: 0.95rem;
+    }
+    
+    .task-description {
+        font-size: 0.85rem;
+    }
+    
+    .calculator-buttons .btn {
+        height: 42px;
+        font-size: 1rem;
+    }
+    
+    .playing-card {
+        width: 50px;
+        height: 70px;
+        font-size: 0.9rem;
+    }
+    
+    .card-slot {
+        width: 50px;
+        height: 70px;
+    }
+    
+    .note-content {
+        min-height: 300px;
+        font-size: 0.9rem;
+    }
+    
+    .stats-number {
+        font-size: 2rem;
+    }
+    
+    .stats-label {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===== MOBILE PEQUENO (até 575px) ===== */
+@media (max-width: 575px) {
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    
+    .navbar-brand i {
+        font-size: 1.4rem;
+    }
+    
+    .nav-tabs {
+        padding: 0;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        border-bottom: 1px solid var(--bg-tertiary);
+    }
+    
+    .nav-tabs::-webkit-scrollbar {
+        height: 3px;
+    }
+    
+    .nav-tabs::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 1.5px;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: var(--spacing-sm);
+        font-size: 0.8rem;
+        white-space: nowrap;
+        min-width: auto;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+    
+    .nav-tabs .nav-link i {
+        margin-right: var(--spacing-xs);
+        font-size: 0.85rem;
+    }
+    
+    .tab-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .card-body {
+        padding: var(--spacing-sm);
+    }
+    
+    .postit {
+        min-height: 100px;
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .postit-title {
+        font-size: 0.95rem;
+    }
+    
+    .postit-content {
+        font-size: 0.8rem;
+    }
+    
+    .postit-actions {
+        position: static;
+        opacity: 1;
+        margin-top: var(--spacing-sm);
+        text-align: right;
+    }
+    
+    .postit-actions .btn {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.75rem;
+    }
+    
+    .task-column {
+        min-height: 250px;
+        margin-bottom: var(--spacing-md);
+        padding: var(--spacing-sm);
+    }
+    
+    .task-item {
+        padding: var(--spacing-sm);
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    .task-title {
+        font-size: 0.9rem;
+    }
+    
+    .task-description {
+        font-size: 0.8rem;
+    }
+    
+    .task-priority {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .task-actions {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .task-actions .btn {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.75rem;
+        width: 100%;
+    }
+    
+    .calculator-buttons .btn {
+        height: 40px;
+        font-size: 0.95rem;
+    }
+    
+    .playing-card {
+        width: 45px;
+        height: 60px;
+        font-size: 0.8rem;
+    }
+    
+    .card-slot {
+        width: 45px;
+        height: 60px;
+    }
+    
+    .note-content {
+        min-height: 250px;
+        font-size: 0.85rem;
+    }
+    
+    .stats-number {
+        font-size: 1.8rem;
+    }
+    
+    .stats-label {
+        font-size: 0.75rem;
+    }
+    
+    .modal-dialog {
+        margin: 1rem;
+    }
+    
+    .modal-body {
+        padding: var(--spacing-md);
+    }
+    
+    .form-control, .form-select {
+        padding: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== ORIENTAÇÃO LANDSCAPE EM MOBILE ===== */
+@media (max-width: 767px) and (orientation: landscape) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-tabs .nav-link {
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+    
+    .tab-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .postit {
+        min-height: 80px;
+    }
+    
+    .task-column {
+        min-height: 200px;
+    }
+    
+    .note-content {
+        min-height: 200px;
+    }
+}
+
+/* ===== ALTA DENSIDADE DE PIXEL (RETINA) ===== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .btn, .form-control, .card {
+        border-width: 0.5px;
+    }
+    
+    .nav-tabs {
+        border-bottom-width: 1px;
+    }
+}
+
+/* ===== IMPRESSÃO ===== */
+@media print {
+    .navbar, .nav-tabs, .btn, .modal {
+        display: none !important;
+    }
+    
+    .tab-content {
+        padding: 0;
+    }
+    
+    .tab-pane {
+        display: block !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    .card {
+        border: 1px solid #000;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+    
+    .postit {
+        background: #fff !important;
+        color: #000 !important;
+        border: 1px solid #000;
+        box-shadow: none;
+        transform: none !important;
+    }
+}
+
+/* ===== ACESSIBILIDADE ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+    :root {
+        --bg-primary: #ffffff;
+        --bg-secondary: #f0f0f0;
+        --bg-tertiary: #d0d0d0;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --text-muted: #666666;
+    }
+}
+
+/* ===== FOCUS VISIBLE ===== */
+.btn:focus-visible,
+.form-control:focus-visible,
+.nav-link:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ===== HOVER EM DISPOSITIVOS TOUCH ===== */
+@media (hover: none) and (pointer: coarse) {
+    .btn:hover,
+    .card:hover,
+    .postit:hover,
+    .task-item:hover {
+        transform: none;
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .nav-tabs .nav-link:hover {
+        background: var(--bg-primary);
+        color: var(--text-secondary);
+    }
+    
+    .postit-actions {
+        opacity: 1;
+    }
+}
